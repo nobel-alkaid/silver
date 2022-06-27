@@ -12,4 +12,20 @@ class Client extends Model
     public function sejours() {
         return $this->hasMany(Sejour::class);
     }
+
+    public static function sexes(){
+        $types = (object)array(
+            1 => "Masculin",
+            2 => "Féminin",
+        );
+        return $types;
+    }
+
+    public function sexe_value($type) {
+        return $this->sexes()->$type;
+    }
+
+    public function getSexeAttribute($value){
+        return $this->sexe_value(ucfirst($value));
+    }
 }

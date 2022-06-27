@@ -1,12 +1,12 @@
 <div class="w-full overflow-hidden rounded-lg shadow-xs border dark:border-gray-700">
     <div class="w-full overflow-x-auto">
-        <table class="w-full whitespace-no-wrap">
+        <table class="w-full whitespace-no-wrap table-fixed">
             <thead>
-                <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                <tr class="text-xs font-semibold tracking-wide text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                     @foreach ($mattributes as $column => $title)
-                        <th class="px-4 py-3">{{ $title }}</th>
+                        <th class="px-4 py-3 text-center">{{ $title }}</th>
                     @endforeach
-                    <th class="px-4 py-3">Action</th>
+                    <th class="px-4 py-3 text-center">Actions</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
@@ -14,9 +14,9 @@
                     @foreach ($resources as $resource)
                         <tr class="text-gray-700 dark:text-gray-400">
                             @foreach ($mattributes as $column => $title)
-                                <td class="px-4 py-3">
+                                <td class="px-4 py-3 text-center">
                                     @if ($column == 'avatar' || $column == 'image')
-                                        <a class="flex items-center text-sm hover:opacity-80">
+                                        <a class="flex items-center text-sm hover:opacity-80 justify-center ">
                                             <!-- Avatar OR Image with inset shadow -->
                                             <div class="relative hidden h-8 mr-3 md:block">
                                                 <img class="object-cover w-full h-full" src="{{ url('storage/' . $resource->{$column}) }}" alt="" loading="lazy">
@@ -36,12 +36,11 @@
                                     @endif
                                 </td>
                             @endforeach
-    
-                            <td class="px-4 py-3">
-                                <div class="flex items-center space-x-4 text-sm">
+                            <td class="px-4 py-3 text-center">
+                                <div class="flex items-center space-x-4 text-sm justify-center">
                                     @foreach ($mactions as $action => $title)
                                         @if ($action == 'show')
-                                            <a href="{{ route(Str::plural($type).'.show', [$type => $resource->id]) }}"
+                                            <a href="{{ route('dashboard.'. Str::plural($type).'.show', [$type => $resource->id]) }}"
                                                 class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
                                                     viewBox="0 0 20 20" fill="currentColor">
@@ -52,7 +51,7 @@
                                                 </svg>
                                             </a>
                                         @elseif ($action == 'edit')
-                                            <a href="{{ route(Str::plural($type).'.edit', [$type => $resource->id]) }}"
+                                            <a href="{{ route('dashboard.'. Str::plural($type).'.edit', [$type => $resource->id]) }}"
                                                 class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-main rounded-lg dark:text-main focus:outline-none focus:shadow-outline-gray"
                                                 aria-label="Edit">
                                                 <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
@@ -63,7 +62,7 @@
                                                 </svg>
                                             </a>
                                         @elseif ($action == 'delete')
-                                            <form action="{{ route(Str::plural($type) . '.destroy', [$type => $resource]) }}" method="POST" onsubmit="return confirm('Voulez vous supprimer cet élément ?')">
+                                            <form action="{{ route('dashboard.'. Str::plural($type) . '.destroy', [$type => $resource]) }}" method="POST" onsubmit="return confirm('Voulez vous supprimer cet élément ?')">
                                                 @method('DELETE')
                                                 @csrf
                                                 <button type="submit"

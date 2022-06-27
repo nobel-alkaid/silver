@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" href="{{ asset('eshore/favicon/default.jpg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('main/assets/logo/favicon.png') }}" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -25,7 +25,7 @@
 
     @livewireStyles
     <!-- Scripts -->
-    <script src="{{ asset('js/init-alpine.js') }}"></script>
+    <script src="{{ asset('main/js/init-alpine.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 
@@ -37,7 +37,7 @@
 
                     <div class="h-32 md:h-auto md:w-1/2">
                         <img aria-hidden="true" class="object-cover w-full h-full"
-                            src="{{ asset('images/product.png') }}" alt="Office">
+                            src="{{ asset('main/assets/auberge.webp') }}" alt="Office">
                     </div>
                     <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
                         <div class="w-full">

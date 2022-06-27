@@ -1,1 +1,1 @@
-<img src="{{ asset('main/images/logo/png/logo1.png') }}" alt="logo" class="logo-class">
+<img src="{{ asset('main/assets/logo/logo.png') }}" alt="logo" class="logo-class rounded-md object-cover">

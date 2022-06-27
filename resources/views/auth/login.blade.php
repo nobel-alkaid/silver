@@ -12,13 +12,13 @@
         <x-buttons.dashboard.facebook /> --}}
 
         <p class="mt-4">
-            <a class="text-sm font-medium text-main dark:text-main hover:underline"
+            <a class="text-base font-medium text-main dark:text-main hover:underline"
                 href="./forgot-password.html">
                 Forgot your password?
             </a>
         </p>
         <p class="mt-1">
-            <a class="text-sm font-medium text-main dark:text-main hover:underline"
+            <a class="text-base font-medium text-main dark:text-main hover:underline"
                 href="./create-account.html">
                 Create account
             </a>

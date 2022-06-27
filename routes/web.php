@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\SejourController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +19,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
+Route::middleware(['auth'])->prefix('dashboard/')->name('dashboard.')->group(function() {  
+    Route::get('', [DashboardController::class, 'index'])->name('index');
+    Route::resource('rooms', RoomController::class);
+    Route::resource('clients', ClientController::class);
+    Route::resource('sejour', SejourController::class)->except(['edit', 'update', 'delete']);
+    Route::fallback([DashboardController::class, 'notFoundError'])->name('error404');
+});
 
 require __DIR__.'/auth.php';
