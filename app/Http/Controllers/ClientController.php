@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\Client;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
@@ -53,7 +54,7 @@ class ClientController extends Controller
         $client->birthday = $request->birthday;
         $client->phone = $request->phone;
         $client->email = $request->email;
-        $client->id_card_number = $request->card_number;
+        $client->id_card_number = $request->id_card_number;
         
         if($request->file('image')) {
             try {
@@ -98,7 +99,10 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        return view('dashboard.clients.edit', [
+            'client' => $client,
+            'my_fields' => $this->client_fields()
+        ]);
     }
 
     /**
@@ -110,7 +114,33 @@ class ClientController extends Controller
      */
     public function update(UpdateClientRequest $request, Client $client)
     {
-        //
+        $client->firstname = $request->firstname;
+        $client->lastname = $request->lastname;
+        $client->sexe = $request->sexe;
+        $client->birthday = $request->birthday;
+        $client->phone = $request->phone;
+        $client->email = $request->email;
+        $client->id_card_number = $request->id_card_number;
+        
+        if($request->file('image')) {
+            try {
+                Storage::disk('public')->delete($client->image);
+                $filename = now()->format('d_m_y_H_s') . "_" . $request->firstname ."_" .$request->lastname . '_avatar.' . $request->image->extension();
+                $client->image = $request->image->storeAs('Customers', $filename, 'public');
+            }
+            catch (Exception $e) {
+                Alert::toast('Une erreur est survenue avec l\'image');
+                return redirect()->back()->withInput($request->input());
+            }
+        }
+        if($client->save()) {
+            Alert::toast('Les informations ont été modifiées', 'success');
+            return redirect()->route('dashboard.clients.index');
+        }
+        else {
+            Alert::toast('Une erreur est survenue', 'error');
+            return redirect()->back()->withInput($request->input());
+        }
     }
 
     /**
@@ -121,7 +151,16 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        try {
+            Storage::disk('public')->delete($client->image);
+            $client->delete();
+            Alert::toast('Les informations du client ont été supprimés', 'success');
+            return redirect()->route('dashboard.clients.index');
+        }
+        catch (Exception $e) {
+            Alert::toast($e->getMessage(), 'error');
+            return redirect()->back();
+        }
     }
 
     private function client_columns() {
@@ -171,7 +210,7 @@ class ClientController extends Controller
                 'title' => 'Adresse mail',
                 'field' => 'email',
             ],
-            'card_number' => [
+            'id_card_number' => [
                 'title' => 'Numéro Carte Identité',
                 'field' => 'number',
             ],

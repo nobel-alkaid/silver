@@ -2,7 +2,7 @@
     <x-slot name="contentHeading">
         <div class="flex justify-between items-center">
             <h2 class="dash-page-title">
-                Liste des produits
+                Nos clients
             </h2>
             <x-buttons.new text="Nouveau client" class="p-3" href="{{route('dashboard.clients.create')}}" />
         </div>

@@ -55,7 +55,7 @@
             <div class="flex flex-col flex-1 w-full">
                 <x-partials.header />
                 <main class="h-full overflow-y-auto pb-14">
-                    <div class="container px-6 mx-auto grid">
+                    <div class="px-6">
                         {{ $contentHeading ?? '' }}
 
                         {{ $slot }}

@@ -62,7 +62,7 @@
                     </x-labels.label>
                     <x-dynamic-component :component="$component" id="{{ $attr }}" name="{{ $attr }}"
                         type="{{ $value['field'] }}" placeholder="{{ $value['title'] }}"
-                        class="block w-full capitalize" value="{{ old($attr) ?? $fill }}" />
+                        class="block w-full" value="{{ old($attr) ?? $fill }}" />
                 @endif
             </div>
         @endforeach

@@ -30,7 +30,7 @@ class StoreClientRequest extends FormRequest
             'birthday' => ['required','date'],
             'phone' => ['required', 'string'],
             'email' => ['required', 'email'],
-            'card_number' => ['required', 'integer'],
+            'id_card_number' => ['required', 'integer'],
             'image' => ['required','file', 'mimes:png,jpg,jpeg,webp']   
         ];
     }

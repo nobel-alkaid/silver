@@ -3,7 +3,7 @@
 
     <div class="block mb-4">
         <x-labels.label value="Email" for="email"/>
-        <x-inputs.text id="email" type="text" name="email" class="block w-full "
+        <x-inputs.text id="email" type="text" name="email" class="block w-full"
             placeholder="Email de connexion" />
     </div>
 

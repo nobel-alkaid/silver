@@ -8,8 +8,8 @@
     </x-slot>
 
 
-    <div class="w-full flex flex-col md:grid md:grid-cols-7 gap-5 py-5 mb-10 md:mb-0">
-        <div class="md:col-span-5">
+    <div class="w-full flex flex-col lg:grid md:grid-cols-7 gap-5 py-5 mb-10 md:mb-0">
+        <div class="lg:col-span-5">
             <x-elements.table :resources="$rooms" :mattributes="$my_attributes" :mactions="$my_actions" type="room" />
         </div>
         <div class="border dark:border-gray-700 overflow-hidden rounded-lg shadow-xs p-4 dark:bg-gray-800 flex flex-col gap-4 md:col-span-2">

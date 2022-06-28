@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="w-2/4 mx-auto my-4">
+    <div class="md:w-2/3 lg:w-2/4 mx-auto my-4">
         <x-forms.create :fields="$my_fields" type="client" />
     </div>
 

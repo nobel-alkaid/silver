@@ -1,23 +1,16 @@
 <x-dash-layout>
     <x-slot name="contentHeading">
         <h2 class="dash-page-title">
-            Editer produit <span class="font-bold capitalize">#{{$product->name}}</span>
+            Changer les infos du client <span class="font-bold capitalize">#{{$client->lastname}} {{ $client->firstname }}</span>
         </h2>
     </x-slot>
 
-    <div class="mx-auto max-w-lg">
-        <x-forms.dashboard.edit :fields="$my_fields" :item="$product" type="product" />
+    <div class="lg:w-1/2 mx-auto">
+        <x-forms.edit :fields="$my_fields" :item="$client" type="client" />
     </div>
 
     @slot('scripts')
-    <script>
-        CKEDITOR.replace( 'description', {
-                uiColor: '#CCEAEE',
-                removeButtons: 'PasteFromWord'
-            } );
 
-    </script>
-
-    <script src="{{asset('js/preview-file.js')}}"></script>
+    <script src="{{asset('main/js/preview-file.js')}}"></script>
     @endslot
 </x-dash-layout>

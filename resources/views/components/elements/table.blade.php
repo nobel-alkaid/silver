@@ -1,10 +1,10 @@
 <div class="w-full overflow-hidden rounded-lg shadow-xs border dark:border-gray-700">
     <div class="w-full overflow-x-auto">
-        <table class="w-full whitespace-no-wrap table-fixed">
+        <table class="w-full whitespace-no-wrap">
             <thead>
                 <tr class="text-xs font-semibold tracking-wide text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                     @foreach ($mattributes as $column => $title)
-                        <th class="px-4 py-3 text-center">{{ $title }}</th>
+                        <th class="px-4 py-3 text-center ">{{ $title }}</th>
                     @endforeach
                     <th class="px-4 py-3 text-center">Actions</th>
                 </tr>
@@ -18,8 +18,8 @@
                                     @if ($column == 'avatar' || $column == 'image')
                                         <a class="flex items-center text-sm hover:opacity-80 justify-center ">
                                             <!-- Avatar OR Image with inset shadow -->
-                                            <div class="relative hidden h-8 mr-3 md:block">
-                                                <img class="object-cover w-full h-full" src="{{ url('storage/' . $resource->{$column}) }}" alt="" loading="lazy">
+                                            <div class="relative h-10 mr-3 md:block">
+                                                <img class="object-cover w-full h-full rounded-full" src="{{ url('storage/' . $resource->{$column}) }}" alt="" loading="lazy">
                                             </div>
                                             {{-- <div>
                                                 <p class="font-semibold capitalize">{{ $resource->name }}</p>
