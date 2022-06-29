@@ -17,16 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [DashboardController::class, 'redirectToLogin']);
 
 
 Route::middleware(['auth'])->prefix('dashboard/')->name('dashboard.')->group(function() {  
     Route::get('', [DashboardController::class, 'index'])->name('index');
     Route::resource('rooms', RoomController::class);
     Route::resource('clients', ClientController::class);
-    Route::resource('sejour', SejourController::class)->except(['edit', 'update', 'delete']);
+    Route::resource('sejours', SejourController::class)->except(['edit', 'update', 'delete']);
+    Route::get('/sejour/stream/{invoice}', [SejourController::class, 'streamInvoice'])->name('invoice.stream');
+    Route::get('/sejour/send/{invoice}', [SejourController::class, 'sendInvoice'])->name('invoice.send');
     Route::fallback([DashboardController::class, 'notFoundError'])->name('error404');
 });
 

@@ -9,6 +9,8 @@ class Client extends Model
 {
     use HasFactory;
 
+    protected $fullname;
+
     public function sejours() {
         return $this->hasMany(Sejour::class);
     }
@@ -28,4 +30,14 @@ class Client extends Model
     public function getSexeAttribute($value){
         return $this->sexe_value(ucfirst($value));
     }
+
+    public function getFullnameAttribute() {
+        return $this->fullname();
+    }
+
+    public function fullname() :String
+    {
+        return $this->firstname . ' ' . $this->lastname;
+    }
+
 }

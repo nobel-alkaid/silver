@@ -194,7 +194,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        //RealRashid Sweet alert
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        // DOMPDF
+        Barryvdh\DomPDF\ServiceProvider::class
 
     ],
 

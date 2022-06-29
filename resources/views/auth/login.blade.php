@@ -1,8 +1,10 @@
 <x-dash-layout :auth=true>
     <div class="w-full">
+
         <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
             Se connecter
         </h1>
+        <x-errors.validation></x-errors.validation>
         
         <x-forms.login />
 

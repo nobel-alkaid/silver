@@ -14,7 +14,7 @@
                 class="block w-full capitalize text-gray-500">
                 <option value="">Sélectionner {{ Str::lower($value['title']) }}</option>
                 @foreach ($value['options'] as $item)
-                <option value="{{ $item->id }}" @selected(old($attr))>{{ $item->name ?? $item->title }}</option>
+                <option value="{{ $item->id }}" @selected(old($attr))>{{ $item->{$value['column']} }}</option>
                 @endforeach
             </x-dynamic-component>
             @elseif ($value['field'] === 'select')

@@ -13,7 +13,7 @@ class StoreSejourRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class StoreSejourRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'client' => ['required', 'integer', 'exists:clients,id'],
+            'room' => ['required', 'integer', 'exists:rooms,id'],
+            'date' => ['required', 'date'],
+            'start_time' => ['required', 'date_format:H:i'],
+            'end_time' => ['required', 'date_format:H:i', 'after:start_time'],
         ];
     }
 }

@@ -11,10 +11,10 @@
     @apply rounded-md shadow-sm border-gray-300 focus:border-main focus:ring focus:ring-[#2b58a4] focus:ring-opacity-50 block dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300;
   }
   .bg-main {
-    @apply bg-[#2ae149] border-[#2ae149];
+    @apply bg-[#2b58a4];
   }
   .bg-main-hov {
-    @apply bg-[#209dd8];
+    @apply bg-[#0a308c];
   }
   .bg-secondary {
     @apply bg-[#f1c91c];

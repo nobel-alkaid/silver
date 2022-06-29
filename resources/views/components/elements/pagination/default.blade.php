@@ -1,6 +1,5 @@
 @if ($paginator->hasPages())
     <div class="flex justify-evenly items-center dark:text-gray-400 py-2">
-        <p class="page-info">Affichage de  <strong>{{$paginator->count()}}</strong> sur <strong>{{$paginator->total()}}</strong>  Resultats</p>
         <nav aria-label="Page navigation example">
             <ul class="flex list-style-none">
                 @if ($paginator->onFirstPage())

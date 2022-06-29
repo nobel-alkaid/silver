@@ -24,4 +24,8 @@ class Room extends Model
     public function getModeAttribute($value){
         return $this->mode_value(ucfirst($value));
     }
+
+    public function sejours($value) {
+        return $this->hasMany(Sejour::class);
+    }
 }

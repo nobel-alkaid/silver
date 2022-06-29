@@ -1,0 +1,15 @@
+<x-dash-layout>
+    <x-slot name="contentHeading">
+        <h2 class="dash-page-title text-center">
+            Enregistrer un nouveau sejour
+        </h2>
+    </x-slot>
+
+    <div class="md:w-2/3 lg:w-2/4 mx-auto my-4">
+        <x-forms.create :fields="$my_fields" type="sejour" />
+    </div>
+
+    @slot('scripts')
+        <script src="{{ asset('main/js/preview-file.js') }}"></script>
+    @endslot
+</x-dash-layout>
