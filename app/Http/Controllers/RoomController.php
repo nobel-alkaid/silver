@@ -44,7 +44,7 @@ class RoomController extends Controller
     {
 
         $room = new Room();
-        $room->number = $request->number;
+        $room->number = (int)$request->number;
         $room->mode = $request->mode;
         $room->hourly_price = $request->hourly_price;
         $room->description = $request->description;
