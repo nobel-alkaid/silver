@@ -87,13 +87,13 @@
                         <li
                             class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
                             <a class="w-full" href="{{ route('dashboard.clients.create') }}">
-                                Créer
+                                Créer un nouveau
                             </a>
                         </li>
                         <li
                             class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
                             <a class="w-full" href="{{ route('dashboard.clients.index') }}">
-                                Lister
+                                Liste des clients
                             </a>
                         </li>
                     </ul>
